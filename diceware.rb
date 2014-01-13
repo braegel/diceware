@@ -9,10 +9,14 @@
 # will take some time to find random words.
 # Use ./diceware -v for a more verbose output.
 #
-# Take at least 5 words to create your password.
+# Take at least five words to create your password.
+# Five words correspond to a password strength (Entropy) of 64 bits.
+# For 128 bits password entropy you need 10 words.
+# For 256 bits you would need 20 words.
 #
 # For more on diceware have a look here:
 # https://en.wikipedia.org/wiki/Diceware
+# https://en.wikipedia.org/wiki/Password_strength#Random_passwords
 #
 # Creative Commons License:
 # https://creativecommons.org/licenses/by/4.0/deed.en_US
