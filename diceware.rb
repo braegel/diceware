@@ -16,10 +16,19 @@
 #
 # Author: Bernd Brägelmann
 
-
-require 'securerandom'
+require 'optparse'
 
 wordlist_path="/usr/share/dict"
+
+options = {}
+OptionParser.new do |opts|
+  opts.banner = "Usage: ./diceware.rb [options]"
+
+  opts.on("-v", "--[no-]verbose", "Run verbosely") do |v|
+    options[:verbose] = true
+  end
+
+end.parse!
 
 words = Array.new
 
@@ -38,7 +47,24 @@ end
 
 puts "words: #{words.length}"
 
-100.times{
-  puts words[SecureRandom.random_number(words.length)]
-}
+needed_bytes=(Math.log2(words.length)/8+1).to_i
+
+while (true) do
+  if `cat /proc/sys/kernel/random/entropy_avail`.chomp.to_i > needed_bytes*8
+    random = `od -An -N#{needed_bytes} -i /dev/random`.scan(/\d+/).first.to_i
+    if random < words.length
+      puts "#{words[random]} (#{random})"
+    else
+      if options[:verbose] 
+        puts "Random number exceeded number of words. Trying again";
+      end
+    end
+  else
+      if options[:verbose]
+        puts "Entropy to low (#{`cat /proc/sys/kernel/random/entropy_avail`.chomp} <= #{needed_bytes*8}). Waiting 10 seconds";
+      end
+    sleep(10)
+  end
+end
+
 
