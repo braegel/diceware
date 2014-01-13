@@ -1,11 +1,11 @@
 #!/usr/bin/env ruby
 # -*- coding: utf-8 -*-
 #
-# Simple Diceware tool for creating passwords.
+# Simple diceware tool for creating passwords.
 #
-# This tool takes all words in /usr/share/dict and randomly selects some of them using the Ruby securerandom class. Sadly this class uses only a PRNG and not /dev/random. Be warned!
+# This tool takes all words in /usr/share/dict and randomly selects some of them using the Ruby securerandom class. Sadly this class uses only a PRNG and not /dev/random. Be warned! Take at least 5 words in a row to create your password.
 #
-# For more on Diceware have a look here: https://en.wikipedia.org/wiki/Diceware
+# For more on diceware have a look here: https://en.wikipedia.org/wiki/Diceware
 #
 # Creative Commons License: https://creativecommons.org/licenses/by/4.0/deed.en_US
 #
