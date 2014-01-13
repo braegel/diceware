@@ -10,7 +10,7 @@
 # Use ./diceware -v for a more verbose output.
 #
 # Take at least five words to create your password.
-# Five words correspond to a password strength (Entropy) of 64 bits.
+# Five words correspond to a password strength (entropy) of 64 bits.
 # For 128 bits password entropy you need 10 words.
 # For 256 bits you would need 20 words.
 #
@@ -21,7 +21,7 @@
 # Creative Commons License:
 # https://creativecommons.org/licenses/by/4.0/deed.en_US
 #
-# Author: Bernd Brägelmann
+# Author: Bernd Brägelmann - http://www.braegelmann.net/bernd
 
 require 'optparse'
 
