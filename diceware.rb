@@ -4,9 +4,12 @@
 # Simple diceware tool for creating passwords.
 #
 # This tool takes all words in /usr/share/dict and randomly
-# selects some of them using the Ruby securerandom class.
-# Sadly this class uses only a PRNG and not /dev/random. Be warned!
-# Take at least 5 words in a row to create your password.
+# (/dev/random) selects some of them.
+# /dev/random needs time to create entropy. Therefore it
+# will take some time to find random words.
+# Use ./diceware -v for a more verbose output.
+#
+# Take at least 5 words to create your password.
 #
 # For more on diceware have a look here:
 # https://en.wikipedia.org/wiki/Diceware
